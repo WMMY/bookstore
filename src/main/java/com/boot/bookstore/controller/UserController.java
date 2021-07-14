@@ -46,4 +46,16 @@ public class UserController {
         return Result.ok().message("删除成功");
     }
 
+    @GetMapping("/login")
+    public Result login(@RequestParam String phone, @RequestParam String pwd){
+        User user = userMapper.findByPhone(phone);
+        if (user == null)   return Result.notExist().message("账号不存在");
+        if (user.getPwd().equals(pwd)){
+            return Result.ok().message("登陆成功");
+        }   else {
+            return Result.error().message("登陆失败");
+        }
+
+    }
+
 }

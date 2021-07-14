@@ -17,6 +17,6 @@ public class User {
     private String email;
     private String name;
     private String pwd;
-    private double money;
+    private double wallet;
     private String note;
 }

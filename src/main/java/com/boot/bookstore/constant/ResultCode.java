@@ -8,7 +8,7 @@ import lombok.ToString;
 public enum ResultCode {
 
     FAILURE(false, -1, "failure"),
-    DEFAULT(true, 0, "default"),
+    NOT_EXIST(false, 0, "not exist"),
     SUCCESS(true, 1, "success"),
     PARAM_IS_INVALID(false, 2, "param is invalid");
 

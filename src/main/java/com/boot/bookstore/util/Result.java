@@ -34,6 +34,15 @@ public class Result implements Serializable {
         return result;
     }
 
+    // 失败返回
+    public static Result notExist(){
+        Result result = new Result();
+        result.setSuccess(ResultCode.NOT_EXIST.getSuccess());
+        result.setCode(ResultCode.NOT_EXIST.getCode());
+        result.setMessage(ResultCode.NOT_EXIST.getMessage());
+        return result;
+    }
+
     // 设置返回结果
     public static Result setResult(ResultCode resultCode){
         Result result = new Result();
