@@ -46,26 +46,14 @@ public class UserController {
         return Result.ok().message("删除成功");
     }
 
-    @GetMapping("/managerLogin")
-    public Result managerLogin(@RequestParam String phone, @RequestParam String pwd){
+    @GetMapping("/login")
+    public Result managerLogin(@RequestParam String phone, @RequestParam String pwd, @RequestParam Integer manager){
         User user = userMapper.findByPhone(phone);
-        if (user == null || user.getManager() == 0)   return Result.notExist().message("账号不存在");
+        if (user == null || user.getManager() != manager)   return Result.notExist().message("账号不存在");
         if (user.getPwd().equals(pwd)){
             return Result.ok().message("登陆成功");
         }   else {
             return Result.error().message("登陆失败");
         }
     }
-
-    @GetMapping("/clientLogin")
-    public Result clientLogin(@RequestParam String phone, @RequestParam String pwd){
-        User user = userMapper.findByPhone(phone);
-        if (user == null || user.getManager() == 1)   return Result.notExist().message("账号不存在");
-        if (user.getPwd().equals(pwd)){
-            return Result.ok().message("登陆成功");
-        }   else {
-            return Result.error().message("登陆失败");
-        }
-    }
-
 }
