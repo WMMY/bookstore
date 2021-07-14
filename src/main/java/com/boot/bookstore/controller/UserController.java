@@ -46,7 +46,7 @@ public class UserController {
         return Result.ok().message("删除成功");
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public Result managerLogin(@RequestParam String phone, @RequestParam String pwd, @RequestParam Integer manager){
         User user = userMapper.findByPhone(phone);
         if (user == null || user.getManager() != manager){
