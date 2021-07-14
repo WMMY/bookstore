@@ -49,7 +49,9 @@ public class UserController {
     @GetMapping("/login")
     public Result managerLogin(@RequestParam String phone, @RequestParam String pwd, @RequestParam Integer manager){
         User user = userMapper.findByPhone(phone);
-        if (user == null || user.getManager() != manager)   return Result.notExist().message("账号不存在");
+        if (user == null || user.getManager() != manager){
+            return Result.notExist().message("账号不存在");
+        }
         if (user.getPwd().equals(pwd)){
             return Result.ok().message("登陆成功");
         }   else {
