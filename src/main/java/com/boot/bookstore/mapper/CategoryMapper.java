@@ -8,4 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public interface CategoryMapper extends JpaRepository<Category, Integer> {
 
+    public Category findByName(String name);
+
 }

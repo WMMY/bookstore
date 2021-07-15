@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserMapper extends JpaRepository<User, Integer>, JpaSpecificationExecutor {
 
 
-    public User findByPhone(String name);
+    public User findByPhone(String phone);
 
 
 }

@@ -3,7 +3,11 @@ package com.boot.bookstore.controller;
 
 import com.boot.bookstore.constant.ResultCode;
 import com.boot.bookstore.entity.Book;
+import com.boot.bookstore.entity.Bookcategory;
+import com.boot.bookstore.entity.Category;
 import com.boot.bookstore.mapper.BookMapper;
+import com.boot.bookstore.mapper.BookcategoryMapper;
+import com.boot.bookstore.mapper.CategoryMapper;
 import com.boot.bookstore.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +21,10 @@ public class BookController {
 
     @Autowired
     private BookMapper bookMapper;
+    @Autowired
+    private CategoryMapper categoryMapper;
+    @Autowired
+    private BookcategoryMapper bookcategoryMapper;
 
 //    @GetMapping("/findAll")
 //    public List<Book> findAll(){
@@ -65,8 +73,16 @@ public class BookController {
 //    }
 
     @PostMapping("/insert")
-    public Result insert(@RequestBody Book book){
+    public Result insert(@RequestBody Book book, @RequestParam String[] type){
         bookMapper.save(book);
+        Category category;
+        Bookcategory bookcategory = new Bookcategory();
+        for(String name : type){
+            category = categoryMapper.findByName(name);
+            bookcategory.setBookid(book.getId());
+            bookcategory.setCategoryid(category.getId());
+            bookcategoryMapper.save(bookcategory);
+        }
         return Result.ok().message("添加成功");
     }
 
