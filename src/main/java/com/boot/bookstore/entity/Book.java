@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Date;
 
 
 @Data // 自动生成get和set方法
@@ -21,5 +22,7 @@ public class Book {
     private double price;
     private String description;
     private String isbn;
+    private Date time;
+    private String press;
     private String note;
 }
