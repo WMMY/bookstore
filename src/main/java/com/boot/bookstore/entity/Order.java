@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Data
@@ -18,4 +19,9 @@ public class Order {
     private Timestamp time;
     private double price;
     private String note;
+    private Date delivertime;
+    private Date acquiretime;
+    private String deliverpos;
+    private String acquirepos;
+    private String delivermethod;
 }

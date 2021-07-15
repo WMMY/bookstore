@@ -5,9 +5,30 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    #显示SQL语句
     show-sql: true
     properties:
       hibernate:
+        # 格式化显示
         format_sql: true
+
+#使用8181端口
 server:
   port: 8181
+
+#aliyun:
+#  oss:
+#    endpoint: https://oss-cn-qingdao.aliyuncs.com
+#    #RAM用户
+#    accessKeyId: LTAI5t9VyQwa4ZSUAjy54qsc
+#    accessKeySecret: J0eQrVDnYaNAlJp9w7co2s72Die3JE
+#    bucketName: 201801060922
+
+#访问OSS的域名
+aliyun.endpoint: http://oss-cn-qingdao.aliyuncs.com
+aliyun.accessKeyId: LTAI5t9VyQwa4ZSUAjy54qsc
+aliyun.accessKeySecret: J0eQrVDnYaNAlJp9w7co2s72Die3JE
+#管理所存储Object的存储空间名称
+aliyun.bucketName: 201801060922
+spring.servlet.multipart.max-request-size: 10MB
+spring.servlet.multipart.max-file-size: 10MB

@@ -21,7 +21,7 @@ public class BookbooklistController {
     }
 
     @GetMapping("/findById")
-    public Result findById(@RequestParam Integer id){
+    public Result findById(@RequestParam("id") Integer id){
         Bookbooklist bookbooklist = bookbooklistMapper.findById(id).get(); // findById(id)返回为Optional<T>，为防止T实体有空值 需再使用get()获取T实体类
         return Result.ok().data("items", bookbooklist);
     }
@@ -39,7 +39,7 @@ public class BookbooklistController {
     }
 
     @DeleteMapping("/delete")
-    public Result delete(@RequestParam Integer id){
+    public Result delete(@RequestParam("id") Integer id){
         bookbooklistMapper.deleteById(id);
         return Result.ok().message("删除成功");
     }

@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @GetMapping("/findById")
-    public Result findById(@RequestParam Integer id){
+    public Result findById(@RequestParam("id") Integer id){
         User user = userMapper.findById(id).get(); // findById(id)返回为Optional<T>，为防止T实体有空值 需再使用get()获取T实体类
         return Result.ok().data("items", user);
     }
@@ -41,13 +41,13 @@ public class UserController {
     }
 
     @DeleteMapping("/delete")
-    public Result delete(@RequestParam Integer id){
+    public Result delete(@RequestParam("id") Integer id){
         userMapper.deleteById(id);
         return Result.ok().message("删除成功");
     }
 
     @PostMapping("/login")
-    public Result managerLogin(@RequestParam String phone, @RequestParam String pwd, @RequestParam Integer manager){
+    public Result managerLogin(@RequestParam("phone") String phone, @RequestParam("pwd") String pwd, @RequestParam("manager") Integer manager){
         User user = userMapper.findByPhone(phone);
         if (user == null || user.getManager() != manager){
             return Result.notExist().message("账号不存在");
