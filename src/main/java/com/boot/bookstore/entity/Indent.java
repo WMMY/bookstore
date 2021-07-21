@@ -11,17 +11,19 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-public class Order {
+public class Indent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer userid;
-    private Timestamp time;
+    private Date time;
     private double price;
     private String note;
     private Date delivertime;
     private Date acquiretime;
     private String deliverpos;
     private String acquirepos;
+    private String curpos;
     private String delivermethod;
+    private Boolean state;
 }

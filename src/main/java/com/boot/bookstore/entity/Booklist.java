@@ -15,5 +15,6 @@ public class Booklist {
     private Integer id;
     private String name;
     private String description;
+    private Integer userid;
     private String note;
 }

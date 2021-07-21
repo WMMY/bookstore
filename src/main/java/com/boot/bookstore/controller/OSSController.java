@@ -76,13 +76,13 @@ public class OSSController {
     }
 
     /**
-     * 获取 url
+     * 获取图书图片url
      *
-     * @param fileName
+     * @param isbn
      */
-    @PostMapping("/getWXUrl")
-    public String getWXUrl(@RequestParam String fileName) {
-        return ossService.getWXUrl(fileName);
+    @PostMapping("/getWXImageUrl")
+    public String getWXImageUrl(@RequestParam String isbn) {
+        return ossService.getWXImageUrl(isbn);
     }
 
     /**

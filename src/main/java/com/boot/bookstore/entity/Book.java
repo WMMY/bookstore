@@ -1,16 +1,12 @@
 package com.boot.bookstore.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
-import lombok.Generated;
-import com.boot.bookstore.entity.Category;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Data // 自动生成get和set方法

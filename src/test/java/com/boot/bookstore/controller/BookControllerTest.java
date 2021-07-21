@@ -16,7 +16,7 @@ class BookControllerTest {
 
     @Test
     void findAll() {
-        System.out.println(bookController.findAll());
+//        System.out.println(bookController.findAll());
     }
 
     @Test
@@ -26,7 +26,7 @@ class BookControllerTest {
 
     @Test
     void insert(Book book) {
-        System.out.println(bookController.insert(book));
+//        System.out.println(bookController.insert(book));
     }
 
     @Test

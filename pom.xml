@@ -77,7 +77,7 @@
     </dependencies>
 
     <build>
-        <finalName>bs-1.0</finalName>
+        <finalName>bs</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -32,8 +32,8 @@ public class OSSService {
     private OSS ossClient;
 
     public String ENDPOINT = "http://oss-cn-qingdao.aliyuncs.com";
-    public String ACCESSKEYID = "LTAI5t9VyQwa4ZSUAjy54qsc";
-    public String ACCESSKEYSECRET = "J0eQrVDnYaNAlJp9w7co2s72Die3JE";
+    public String ACCESSKEYID = "";
+    public String ACCESSKEYSECRET = "";
     private String OSS_BOOKSTORE_URL;
 
 //    /**
@@ -118,7 +118,7 @@ public class OSSService {
     public String uploadFile(MultipartFile file) {
 
         String bucketName = ossConfiguration.getBucketName();
-        OSS_BOOKSTORE_URL = "https://" + ossConfiguration.getBucketName() + ".oss-cn-qingdao.aliyuncs.com/bookstore";
+        OSS_BOOKSTORE_URL = "https://" + ossConfiguration.getBucketName() + ".oss-cn-qingdao.aliyuncs.com/bookstore/wx-images/bookImage";
         // <yourObjectName>上传文件到OSS时需要指定包含文件后缀在内的完整路径，例如abc/efg/123.jpg。
         try {
             //创建OSS实例
@@ -146,17 +146,17 @@ public class OSSService {
 
 
     /**
-     * 获取小程序图片的url
+     * 获取图书图片的url
      *
-     * @param fileName
+     * @param isbn
      * @return
      */
-    public String getWXUrl(String fileName) {
+    public String getWXImageUrl(String isbn) {
         OSS_BOOKSTORE_URL = "https://" + ossConfiguration.getBucketName() + ".oss-cn-qingdao.aliyuncs.com/bookstore";
-        fileName = OSS_BOOKSTORE_URL + "/wx-images" + fileName;
-        String url = fileName;
+        String url = OSS_BOOKSTORE_URL + "/wx-images/bookImage/" + isbn + ".png";
         if (url != null) {
             try {
+                // 获取的url会被转义，将‘/’转为%20f 需对url进行decode再进行返回
                 byte[] bytes = url.getBytes("UTF-8");
                 String url_decode = new String(bytes, "UTF-8");
                 return url_decode;

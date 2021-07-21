@@ -13,8 +13,8 @@ spring:
         format_sql: true
 
 #使用8181端口
-server:
-  port: 8181
+#server:
+#  port: 8181
 
 #aliyun:
 #  oss:
